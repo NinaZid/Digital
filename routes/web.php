@@ -22,3 +22,7 @@ Route::get('/logout', 'SessionsController@destroy');
 Route::post('/admin', 'AdminController@create');
 Route::get('/admin', 'AdminController@index');
 
+Route::get('/gallery', 'GalleryController@index');
+Route::post('/gallery', 'GalleryController@upload');
+
+Route::post('/order', 'OrderController@create');

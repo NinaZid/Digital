@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth; 
 
 class SessionsController extends Controller
 {
@@ -16,7 +16,7 @@ class SessionsController extends Controller
     {
     	
 
-    	if(! auth()->attempt(request(['email', 'password']))) 
+    	if(! auth()->attempt(request(['name','email', 'password']))) 
 
     	{
        		return back()->withErrors(['message' => 'Check your credentials and try again.']);

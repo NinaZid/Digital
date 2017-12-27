@@ -10,8 +10,8 @@
 		<form method="POST" action="/digital/public/login">
 			{{ csrf_field() }}
 			<div class="form-group">
-				<!-- <label for="name">Username:</label>
-				<input type="text" class="form-control" id="username" name="username" required> -->
+				<label for="name">Username:</label>
+				<input type="text" class="form-control" id="name" name="name" required>
 			</div>
 			<div>
 				<label for="email">Email:</label>
