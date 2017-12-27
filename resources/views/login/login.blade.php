@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>Login page</h1>
+@extends ('master')
 
-	<div class="col-sm-8">
+@section('content')
+<br><hr><br>
+	<div class="col-sm-8" style="height: 400px;">
 		<form method="POST" action="/digital/public/login">
 			{{ csrf_field() }}
 			<div class="form-group">
@@ -20,13 +16,12 @@
 			<div>
 				<label for="password">Password:</label>
 				<input type="password" class="form-control" id="password" name="password" required>
-			</div>
+			</div><br>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary">Sign in</button>
 			</div>
 			
 		</form>
-			
 	</div>
-</body>
-</html>
+
+	@endsection

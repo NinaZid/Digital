@@ -15,5 +15,6 @@ class OrderController extends Controller
     	$order->images=request('ids');
     	$order->save();
     	return redirect('/gallery');
+    	 session()->flash('message', 'Your post has been published.');
     }
 }

@@ -25,3 +25,28 @@
     height: 400px;
     margin-left: 200px;
 }
+
+#flash-msg {
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  right: 20px;
+}
+
+#flash-msg {
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  right: 120px;
+  animation: flash-msg 4s forwards;
+}
+
+
+@keyframes flash-msg {
+    0%   {opacity: 1;}
+    100% {opacity: 0; display:none;}
+}
+
+h1 {
+	color: red;
+}

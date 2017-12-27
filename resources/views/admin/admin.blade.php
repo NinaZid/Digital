@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+@extends ('master')
+
+@section ('content')
+
 	<div id="main">
-	<h2>Add new user</h2>
+
+	<div>
+		<h1>Gallery</h1>
+		<div>
+		@foreach($images as $image)
+			<img src="/digital/uploads/{{ $image->image_name }}" alt="" style="width: 200px; height: 200px;">
+		@endforeach
+		</div>
+		
+		<br><hr><br>
+		<div id="image_div">
+			<form method="POST" action="/digital/public/gallery" enctype="multipart/form-data">
+					{{ csrf_field() }}
+				<div>
+					<h2>Upload images:</h2><br>
+					<input type="file" name="fileToUpload" id="fileToUpload">
+    				<input type="submit" value="Upload Image" name="submit" id="image_submit">
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<br><hr><br>
+	<h1>Add new user</h2>
 	<div>
 		<form method="POST" action="/digital/public/admin">
 			{{ csrf_field() }}
@@ -20,33 +41,13 @@
 			<div>
 				<label for="password">Password:</label>
 				<input type="password" class="form-control" id="password" name="password" required>
-			</div>
+			</div><br>
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary">Add user</button>
+				<button type="submit" class="btn btn-primary" id="add_user">Add user</button>
 			</div>
 		</form>
 	</div>
-	<div>
-		<h1>Gallery</h1>
-		<div>
-			<form method="POST" action="/digital/public/gallery" enctype="multipart/form-data">
-					{{ csrf_field() }}
-				<div>
-					<p>Select image to upload</p><br>
-					<input type="file" name="fileToUpload" id="fileToUpload"><br>
-    				<input type="submit" value="Upload Image" name="submit">
-				</div>
-			</form>
-					
-		</div>
-	</div>
-	<div>
-		@foreach($images as $image)
-	<img src="/digital/uploads/{{ $image->image_name }}" alt="">
-
-	@endforeach
 
 	</div>
-	</div>
-</body>
-</html>
+
+@endsection
