@@ -3,9 +3,9 @@
 @section ('content')
 
 
-	<h1>Gallery</h1>
+	<br><h1>Gallery</h1><br>
 	@foreach($images as $image)
-	<img src="/digital/uploads/{{ $image->image_name }}" style="width: 200px; height: 200px; alt="" onclick="add_id({{ $image->id }}, this)">
+	<img src="/digital/uploads/{{ $image->image_name }}" style="width: 200px; height: 200px;"" alt="" onclick="add_id({{ $image->id }}, this)">
 
 	@endforeach
 

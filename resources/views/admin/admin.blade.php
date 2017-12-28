@@ -5,7 +5,7 @@
 	<div id="main">
 
 	<div>
-		<h1>Gallery</h1>
+		<br><h1>Gallery</h1><br>
 		<div>
 		@foreach($images as $image)
 			<img src="/digital/uploads/{{ $image->image_name }}" alt="" style="width: 200px; height: 200px;">
@@ -16,8 +16,8 @@
 		<div id="image_div">
 			<form method="POST" action="/digital/public/gallery" enctype="multipart/form-data">
 					{{ csrf_field() }}
-				<div>
-					<h2>Upload images:</h2><br>
+				<h2>Upload images:</h2><br>
+				<div style="margin-left: 200px;">
 					<input type="file" name="fileToUpload" id="fileToUpload">
     				<input type="submit" value="Upload Image" name="submit" id="image_submit">
 				</div>

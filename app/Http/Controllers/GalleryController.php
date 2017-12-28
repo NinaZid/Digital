@@ -28,7 +28,7 @@ class GalleryController extends Controller
 		        $image->image_name=basename($_FILES["fileToUpload"]["name"]);
 		        $image->save(); 
 
-		        return redirect('/gallery');
+		        return redirect('/admin');
 		        
 }
     
