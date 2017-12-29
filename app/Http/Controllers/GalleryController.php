@@ -15,21 +15,27 @@ class GalleryController extends Controller
 
     public function upload()
     {
-    	
-    	$target_dir = $_SERVER['DOCUMENT_ROOT']. "/digital/uploads/";
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+     
+    	$total = count($_FILES['fileToUpload']['name']);
+    	for($i=0; $i<$total; $i++)
+    	{
+    		$tmpFilePath = $_FILES['fileToUpload']['tmp_name'][$i];
 
-		
-	move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], 
-		$target_file);
-	
+    		if($tmpFilePath != "")
+    		{
+    			$target_dir = $_SERVER['DOCUMENT_ROOT']. "/digital/uploads/". $_FILES['fileToUpload']['name'][$i];
+    			if(move_uploaded_file($tmpFilePath, $target_dir))
+    			{
 
-		        $image= new Image;
-		        $image->image_name=basename($_FILES["fileToUpload"]["name"]);
-		        $image->save(); 
+				    $image= new Image;
+				    $image->image_name=basename($_FILES["fileToUpload"]["name"][$i]);
+				    $image->save(); 
 
-		        return redirect('/admin');
-		        
-}
+    			}
+    		}
+       	}
+
+            return redirect('/admin');
+	}
     
 }

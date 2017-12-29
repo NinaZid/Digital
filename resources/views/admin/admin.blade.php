@@ -18,7 +18,7 @@
 					{{ csrf_field() }}
 				<h2>Upload images:</h2><br>
 				<div style="margin-left: 200px;">
-					<input type="file" name="fileToUpload" id="fileToUpload">
+					<input type="file" id="fileToUpload" name="fileToUpload[]" multiple>
     				<input type="submit" value="Upload Image" name="submit" id="image_submit">
 				</div>
 			</form>
@@ -28,6 +28,13 @@
 	<br><hr><br>
 	<h1>Add new user</h2>
 	<div>
+		<div id="msg" style="font-size: 20px; text-align: center; color: blue;">
+		
+		@if( Session::has( 'success' ))
+    		{{ Session::get( 'success' ) }}
+    	@endif
+		
+		</div>
 		<form method="POST" action="/digital/public/admin">
 			{{ csrf_field() }}
 			<div class="form-group">

@@ -13,7 +13,10 @@
 		{{ csrf_field() }}
 	<input type="hidden" name="ids" id="ids"><br>
 
-	<button onclick="addOrder()" class="btn btn-primary" id="order_btn">Order</button>
+	<button onclick="addOrder()" class="btn btn-primary" id="order_btn">Order</button><br>
+		@if( Session::has( 'success' ))
+    		{{ Session::get( 'success' ) }}
+    	@endif
 
 </form>
 	<script type="text/javascript">
@@ -22,7 +25,7 @@
 		function add_id(id, el){
 			ids.push(id);
 			document.getElementById('ids').value = ids.join(',');
-			el.style.border="1px dashed blue";
+			el.style.border="2px solid blue";
 		}
 
 		function addOrder()

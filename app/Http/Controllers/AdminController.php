@@ -32,8 +32,13 @@ class AdminController extends Controller
             'password' => bcrypt(request('password')),
            	'role' => 1 //admin is role 0
             ]);
- 		 return redirect('/admin');
- 	 		 
+
+		return redirect('/admin')->withSuccess('User created!');
+
+ 	 		
+
+
+ 
  	}
 
  	

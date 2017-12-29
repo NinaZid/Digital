@@ -14,7 +14,7 @@ class OrderController extends Controller
     	$order->user_id=Auth::user()->id;
     	$order->images=request('ids');
     	$order->save();
-    	return redirect('/gallery');
-    	 session()->flash('message', 'Your post has been published.');
+    	return redirect('/gallery')->withSuccess('Your order is done!');
+    	 
     }
 }
